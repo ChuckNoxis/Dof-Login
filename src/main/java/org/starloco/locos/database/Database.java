@@ -34,7 +34,7 @@ public class Database {
         logger.trace("Reading database config");
         HikariConfig config = new HikariConfig();
 
-        config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
+        config.setDataSourceClassName("org.mariadb.jdbc.Driver");
         //config.setDataSourceClassName("org.mariadb.jdbc.MySQLDataSource");
         config.addDataSourceProperty("serverName", Config.host);
         config.addDataSourceProperty("port", Config.port);

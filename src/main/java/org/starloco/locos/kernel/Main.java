@@ -20,7 +20,6 @@ public class Main {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(Main.class);
 
     static {
-        System.setProperty("logback.configurationFile", "logback.xml");
         Runtime.getRuntime().addShutdownHook(new Thread() {
             public void run() {
                 Main.exit();
