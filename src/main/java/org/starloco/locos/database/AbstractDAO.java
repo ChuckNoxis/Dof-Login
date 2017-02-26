@@ -7,6 +7,8 @@ import org.starloco.locos.kernel.Main;
 
 import java.sql.*;
 
+import static java.sql.ResultSet.TYPE_SCROLL_INSENSITIVE;
+
 public abstract class AbstractDAO<T> implements DAO<T> {
 
     private final Object locker = new Object();
@@ -58,7 +60,7 @@ public abstract class AbstractDAO<T> implements DAO<T> {
                 if (!query.endsWith(";"))
                     query = query + ";";
                 connection = dataSource.getConnection();
-                Statement statement = connection.createStatement();
+                Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 Result result = new Result(connection, statement.executeQuery(query));
                 logger.debug("SQL request executed successfully {}", query);
                 return result;
