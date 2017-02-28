@@ -13,7 +13,7 @@ public abstract class AbstractDAO<T> implements DAO<T> {
 
     private final Object locker = new Object();
     private final HikariDataSource dataSource;
-    protected Logger logger = (Logger) LoggerFactory.getLogger("test");
+    protected Logger logger = (Logger) LoggerFactory.getLogger(getClass());
 
     protected AbstractDAO(HikariDataSource dataSource) {
         this.dataSource = dataSource;

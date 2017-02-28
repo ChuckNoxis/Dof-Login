@@ -90,4 +90,8 @@ class Password {
         String password = cryptPassword(cryptPassword(pass, "MD5"), "SHA-512");
         return password != null && password.equals(passHash);
     }
+
+    public static void main(String[] args){
+        System.out.println(cryptPassword(cryptPassword(args[0], "MD5"), "SHA-512"));
+    }
 }

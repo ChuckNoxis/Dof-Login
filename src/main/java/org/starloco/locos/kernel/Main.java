@@ -20,11 +20,7 @@ public class Main {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(Main.class);
 
     static {
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            public void run() {
-                Main.exit();
-            }
-        });
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> Main.exit()));
     }
 
     public static void main(String[] arg) {
